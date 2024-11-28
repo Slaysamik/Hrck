@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vaše IP adresa byla zachycena!</title>
+    <style>
+        body {
+            background-color: #111;
+            color: #f00;
+            font-family: 'Courier New', monospace;
+            text-align: center;
+            padding: 50px;
+            overflow: hidden;
+        }
+        .warning {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            animation: blink 1s infinite;
+        }
+        .ip-address {
+            font-size: 28px;
+            color: #0f0;
+            margin-top: 40px;
+            opacity: 0;
+            animation: fadeIn 3s forwards;
+        }
+        .details {
+            color: #ff0;
+            font-size: 20px;
+            margin-top: 20px;
+            opacity: 0;
+            animation: fadeIn 5s forwards;
+        }
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+        .fake-progress {
+            width: 0;
+            height: 30px;
+            background-color: #f00;
+            animation: load 4s forwards;
+            margin: 20px auto;
+        }
+        @keyframes load {
+            to { width: 80%; }
+        }
+    </style>
+</head>
+<body>
+    <div class="warning">!!! VAROVÁNÍ: BEZPEČNOSTNÍ HROZBA !!!</div>
+    <div class="fake-progress"></div>
+    <div class="ip-address">Zachycená IP adresa: <span id="ip">Zjišťuji...</span></div>
+    <div class="details">Vaše poloha a údaje o zařízení byly zaznamenány.</div>
+
+    <script>
+        // Simulace „získávání“ IP adresy (neukazuje skutečnou IP)
+        setTimeout(() => {
+            const fakeIP = "192.168.1." + Math.floor(Math.random() * 255);
+            document.getElementById("ip").innerText = fakeIP;
+        }, 3000);  // Zpoždění pro realističnost
+    </script>
+</body>
+</html>
